@@ -11,7 +11,10 @@ import SwiftUI
 struct FlickrApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            let networkingManager = NetworkManager()
+            let photosListViewModel = PhotosListViewModel(networkManager: networkingManager)
+            
+            PhotosListView(viewModel: photosListViewModel)
         }
     }
 }
